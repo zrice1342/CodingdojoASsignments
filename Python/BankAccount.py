@@ -18,7 +18,7 @@ class BankAccount:
         return sum
     @staticmethod
     def can_withdraw(balance,amount):
-        if (balance - amount) < 0:
+        if (balance - amount) < 5:
             return False
         else:
             return True
