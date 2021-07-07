@@ -1,10 +1,9 @@
 class BankAccount:
     bank_name = "First National Dojo"
     all_accounts = []
-    def __init__(self, name,int_rate,balance):
+    def __init__(self,int_rate,balance):
         self.int_rate = int_rate
         self.balance = balance
-        self.name = name
         BankAccount.all_accounts.append(self)
     @classmethod
     def change_bank_name(cls,name):
@@ -22,29 +21,29 @@ class BankAccount:
             return False
         else:
             return True
-        
+
+
+
+class User:
+    def __init__(self,name,email):
+        self.name = name
+        self.emial = email
+        self.account = BankAccount(int_rate=.02,balance=0)
     def with_draw(self,amount):
-        if BankAccount.can_withdraw(self.balance,amount):
-            self.balance -= amount
+        if BankAccount.can_withdraw(self.account.balance,amount):
+            self.account.balance -= amount
         else:
             print("Insufficient Funds")
         return self  
     def deposit(self,amount):
-        self.balance += amount
+        self.account.balance += amount
         return self
     def yeild_intrest(self):
-        self.balance = self.balance * (self.int_rate +1)
+        self.account.balance = self.balance * (self.int_rate +1)
         return self
     def display_account_info(self):
-        print(self.name,self.int_rate,self.balance)
+        print(self.name,self.account.int_rate,self.account.balance)
 
+Zack = User("Zack","Zrice@gmnail.com")
 
-
-Zack = BankAccount("Zack", .1, 3000 )
-Zack.deposit(10000).deposit(2000).deposit(3000).with_draw(2000).yeild_intrest().display_account_info()
-
-
-Miles = BankAccount("Miles", .01, 3000 )
-Miles.deposit(3000).deposit(100000).with_draw(900).with_draw(100).with_draw(2000).yeild_intrest().display_account_info()
-
-
+Zack.deposit(1000).with_draw(500).display_account_info()
