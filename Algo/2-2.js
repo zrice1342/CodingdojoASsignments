@@ -12,27 +12,22 @@
 // never hit an closing parens before a opening parens
 // ONLY care about the parens in the string
 
-function parensValid(str) {
-    brackets = [];
-    valid = true;
-    for (var i = 0; i < str.length; i++) {
-        if (str[i] == "(" || str[i] == ")") {
-            brackets.push(str[i]);
-        }
+function parChecker(str){
+    var yes = 0;
+    for(var i in str){   
+        if(str[i] == '('){
+            yes ++;
+        } else if(str[i] == ')') {
+            yes --;
+        }  
+        if (yes < 0) return false;
     }
-    for (var j = 0; j < brackets.length; j++) {
-        console.log(brackets[j]);
-        if (brackets[j] !== "(" && brackets[j + 1] !== ")") {
-            valid = false;
-            break;
-        }
-    }
-    console.log(valid)
+    if(yes > 0) return false;
+    return true;
 }
-
-parensValid("n(0(p)3")
-parensValid("y(3(p)p(3)r)s")
-parensValid("n)0(t(o)k")
+console.log(parChecker('y(3(p)p(3)r)s')); // true
+console.log(parChecker('n0p3')); // false
+console.log(parChecker('n)0to(k')); // false
 
 // Given a string, returns whether the sequence of various parentheses, braces and brackets within it are valid. 
 
