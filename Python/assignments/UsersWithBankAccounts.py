@@ -47,3 +47,4 @@ class User:
 Zack = User("Zack","Zrice@gmnail.com")
 
 Zack.deposit(1000).with_draw(500).display_account_info()
+print(Zack.name)
