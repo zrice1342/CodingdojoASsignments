@@ -1,0 +1,37 @@
+INSERT INTO dojo (`id`,`Full name`,`Created_at`,`updated_at`) VALUES (312,'Python','2021-07-12-12:31:21','2021-07-12-12:32:21');
+INSERT INTO dojo (`id`,`Full name`,`Created_at`,`updated_at`) VALUES (313,'Java','2021-07-12-12:31:21','2021-07-12-12:32:21');
+INSERT INTO dojo (`id`,`Full name`,`Created_at`,`updated_at`) VALUES (314,'Mern','2021-07-12-12:31:21','2021-07-12-12:32:21');
+
+DELETE FROM dojos 
+
+INSERT INTO dojos (`id`,`Full name`,`Created_at`,`updated_at`) VALUES (312,'Python','2021-07-12-12:31:21','2021-07-12-12:32:21');
+INSERT INTO dojos (`id`,`Full name`,`Created_at`,`updated_at`) VALUES (313,'Java','2021-07-12-12:31:21','2021-07-12-12:32:21');
+INSERT INTO dojos (`id`,`Full name`,`Created_at`,`updated_at`) VALUES (314,'Mern','2021-07-12-12:31:21','2021-07-12-12:32:21');
+
+
+INSERT INTO ninjas (`id`,`first_name`,`last_name`,`age`,`created_at`,`updated_at`,`dojo_id1`) VALUES (01,'Zack','Rice',22,'2021-07-12-12:31:21','2021-07-12-12:31:21',312);
+INSERT INTO ninjas (`id`,`first_name`,`last_name`,`age`,`created_at`,`updated_at`,`dojo_id1`) VALUES (02,'Zack','Rice',22,'2021-07-12-12:31:21','2021-07-12-12:31:21',312);
+INSERT INTO ninjas (`id`,`first_name`,`last_name`,`age`,`created_at`,`updated_at`,`dojo_id1`) VALUES (03,'Zack','Rice',22,'2021-07-12-12:31:21','2021-07-12-12:31:21',312);
+
+INSERT INTO ninjas (`id`,`first_name`,`last_name`,`age`,`created_at`,`updated_at`,`dojo_id1`) VALUES (04,'Zack','Rice',22,'2021-07-12-12:31:21','2021-07-12-12:31:21',313);
+INSERT INTO ninjas (`id`,`first_name`,`last_name`,`age`,`created_at`,`updated_at`,`dojo_id1`) VALUES (05,'Zack','Rice',22,'2021-07-12-12:31:21','2021-07-12-12:31:21',313);
+INSERT INTO ninjas (`id`,`first_name`,`last_name`,`age`,`created_at`,`updated_at`,`dojo_id1`) VALUES (06,'Zack','Rice',22,'2021-07-12-12:31:21','2021-07-12-12:31:21',313);
+
+INSERT INTO ninjas (`id`,`first_name`,`last_name`,`age`,`created_at`,`updated_at`,`dojo_id1`) VALUES (07,'Zack','Rice',22,'2021-07-12-12:31:21','2021-07-12-12:31:21',314);
+INSERT INTO ninjas (`id`,`first_name`,`last_name`,`age`,`created_at`,`updated_at`,`dojo_id1`) VALUES (08,'Zack','Rice',22,'2021-07-12-12:31:21','2021-07-12-12:31:21',314);
+INSERT INTO ninjas (`id`,`first_name`,`last_name`,`age`,`created_at`,`updated_at`,`dojo_id1`) VALUES (09,'Zack','Rice',22,'2021-07-12-12:31:21','2021-07-12-12:31:21',314);
+
+SELECT * 
+FROM ninjas
+WHERE dojo_id1 = 312;
+
+SELECT * 
+FROM ninjas
+WHERE dojo_id1 = 314;
+
+SELECT * 
+FROM ninjas
+ORDER BY id DESC
+LIMIT 1;
+
+
