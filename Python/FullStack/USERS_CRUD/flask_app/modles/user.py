@@ -20,9 +20,10 @@ class User:
         for user in results:
             users.append(cls(user))
         return users
-    def get_one_friend(cls,data):
-        query = "select * from where id = %(friend_id)s%"
-        results = connectToMySQL('users_schema').query_db(query)
+    def get_one_user(cls,data):
+        query = "select * from users where id = %(id)s;"
+        results = connectToMySQL('users_schema').query_db(query,data)
+        print (results)
         return cls(results[0])
     # ... other class methods
     # class method to save our friend to the database
@@ -32,3 +33,13 @@ class User:
         # data is a dictionary that will be passed into the save method from server.py
         results = connectToMySQL('users_schema').query_db( query, data ) 
         print(results)
+    @classmethod
+    def update(cls,data):
+        query = "Update users set first_name =  %(fname)s , last_name = %(lname)s , email = %(email)s , updated_at = NOW() Where id = %(id)s"
+        results = connectToMySQL('users_schema').query_db( query, data ) 
+        print(results)
+    @classmethod
+    def delete(cls,data):
+        query = " Delete from users where id = %(id)s"
+        results = connectToMySQL('users_schema').query_db( query, data ) 
+        print (results)
