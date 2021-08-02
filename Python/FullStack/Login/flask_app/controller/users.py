@@ -12,7 +12,8 @@ def login():
 
 @app.route('/register', methods=['POST'])
 def register():
-    # validate the form here ...
+    if not User.validate_user(request.form):
+        return redirect("/")
     pw_hash = bcrypt.generate_password_hash(request.form['password'])
     print(pw_hash)
     data = {
@@ -44,3 +45,4 @@ def log():
     session['user_id'] = user_in_db.id
     # never render on a post!!!
     return redirect("/dashboard")
+

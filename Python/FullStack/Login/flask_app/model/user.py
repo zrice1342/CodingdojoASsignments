@@ -15,6 +15,26 @@ class User:
         self.first = data['first']
         self.last = data['last']
 
+    @staticmethod
+    def validate_user(data):
+        is_valid = True
+        if len(data['username']) < 2:
+            flash("usernamename must be longer than 2 characters")
+            is_valid = False
+        if len(data['email']) < 3:
+            flash("email must be longer than 3 characters")
+            is_valid = False
+        if len(data['password']) < 8:
+            flash("password must be longer than 8 characters")
+            is_valid = False
+        if data['password'] != data['conf_password']:
+            flash("passwords dont match")
+            is_valid = False
+        if not EMAIL_REGEX.match(data['email']):
+            flash("email is not valid")
+            is_valid = False
+        return is_valid
+
 
     @classmethod
     def save(cls,data):

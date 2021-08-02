@@ -6,43 +6,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
 </head>
 <body>
-    <div class='container'>
-        <div class = 'row'>
-            <div class = 'col'>
-                <form action="/register" method="POST">
-                    <h1>Register:</h1>
-                    <label>First Name:</label>
-                    <input type = "text" name="first">
-                    <label>last Name:</label>
-                    <input type = "text" name="last">
-                    <label>Email:</label>
-                    <input type = "text" name="email">
-                    <label>Password:</label>
-                    <input type = "text" name="password">
-                    <label>Confrim Password:</label>
-                    <input type = "text" name="confpassword">
-                    <input type="submit" value="Create">
-                </from>
-            </div>
-        </div>
-    </div>
 
-    <div class='container'>
-        <div class = 'row'>
-            <div class = 'col'>
-                <from action = "/login" method="POST">
-                    <h1>login:</h1>
-                    <label>Email:</label>
-                    <input type = "text" name="email">
-                    <label>Password:</label>
-                    <input type = "text" name="password">
-                    <input class = "btn btn-dark" type='submit' value = login'>
-                </from>
-            </div>
+
+    <div class="container">
+        <div class = "row">
+            {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+            {% if messages %}                            <!-- check if there are any messages -->
+                {% for message in messages %}            <!-- loop through the messages -->
+                    <p class = "text-danger">{{message}}</p>                   <!-- display each message in a paragraph tag -->
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <div class="col">
+            <h1>register</h1>
+    <form action="/register" method= "POST">
+        <div class="form-group">
+            <label>First name</label>
+            <input type="text" class="form-control" name = "first">
+          </div>
+          <div class="form-group">
+            <label>last name</label>
+            <input type="text" class="form-control" name = "last">
+          </div>
+        <div class="form-group">
+          <label>Email address</label>
+          <input type="text" class="form-control"name = "email">
         </div>
+        <div class="form-group">
+          <label >Password</label>
+        <input type="password" class="form-control"name = "password">
+        </div>
+        <div class="form-group">
+            <label >Confirm Password</label>
+            <input type="password" class="form-control"name = "conf_password">
+        </div>
+        <button type="submit" class="btn btn-secondary">Submit</button>
+    </form>
     </div>
+    <div class="col">
+    <h1>Login</h1>
+    <form action="/login" method= "POST">
+        <div class="form-group">
+          <label>Email address</label>
+          <input type="text" class="form-control"name = "email">
+        </div>
+        <div class="form-group">
+          <label >Password</label>
+          <input type="password" class="form-control"name = "password">
+        </div>
+        <button type="submit" class="btn btn-dark">Submit</button>
+      </form>
+      </div>
+      </div>
 </body>
 </html>
