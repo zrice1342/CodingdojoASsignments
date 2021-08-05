@@ -13,7 +13,20 @@ public abstract class Phone {
     }
     // abstract method. This method will be implemented by the subclasses
     public abstract void displayInfo();
-    // getters and setters removed for brevity. Please implement them yourself
+    
+    public String getversionNumber(){
+        return this.versionNumber;
+    }
+    public int getbatterPercentage(){
+        return this.batteryPercentage;
+    }
+    public String getcarrier(){
+        return this.carrier;
+    }
+
+    public String getringTone(){
+        return this.ringTone;
+    }
 }
 
 

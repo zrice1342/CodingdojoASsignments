@@ -1,7 +1,8 @@
 package phone;
 
-public interface Ringable {
-    // your code here
+public interface Ringable{
+    String ring();
+    String unlock();
 }
 
 
