@@ -1,29 +1,39 @@
-class Vehicle {
-    constructor(name, health, speed, strength) {
+class Ninja {
+    constructor(name) {
         this.name = name; 
-        this.health = health;
+        this.health = 0;
         this.speed = 2;
         this.strength = 3;
     }
     sayName() {
-        console.log(``);
+        console.log(`${this.constructor.name}`);
     }
-    // simple method in the parent class
-    parentFunction(){
-        return "This is coming from the parent!";
+    showStats(){
+        console.log(`health is ${this.health}`);
+        console.log(`speed is ${this.speed}`);
+        console.log(`strength is ${this.strength}`);
     }
+
+    drinkSake(){
+        this.health += 10;
+    }
+
 }
 // child M5 class
-class M5 extends Vehicle {
-    constructor(color) {
-        super("BMW", "M5", color);
+class Sensei extends Ninja {
+    constructor(name) {
+        super(name)
+        this.wisom = 10;
     }
-    // simple function in the child class
-    childFunction() {
-        // by using super, we can call the parent method
-        const message = super.parentFunction();
-        console.log(message);
+    speakWisdom() { 
+    console.log("What one programmer can do in one month, two programmers can do in two months.");
     }
 }
-const m5 = new M5("Blue");
-m5.childFunction();
+const ninja1 = new Ninja("Hyabusa");
+ninja1.sayName();
+ninja1.drinkSake();
+ninja1.showStats();
+
+const superSensei = new Sensei("Master Splinter");
+superSensei.speakWisdom();
+superSensei.showStats();
