@@ -7,6 +7,7 @@ class Menu extends Component {
         <h3>Dish Name: {this.props.nameOfDish}</h3>
         <h5>Price:{this.props.price}</h5>
         <p> Description: {this.props.children} </p>
+        <button onClick = {()=> console.log(`you clicked ${this.props.nameOfDish}!`)}> Click ME!</button>
         </div>
         </>
     }
