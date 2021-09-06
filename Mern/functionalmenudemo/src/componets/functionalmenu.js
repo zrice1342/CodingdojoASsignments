@@ -17,6 +17,7 @@ const functionalmenu = (props)=>{
         </div>
     </>
     }
-}
+    );
+};
 
 export default functionalmenu;
