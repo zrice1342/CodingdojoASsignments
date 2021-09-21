@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import Main from './Main';
 import Detail from './views/Detail';
+import Update from './views/Update';
     
 function App() {
   return (
@@ -17,6 +18,9 @@ function App() {
         <Route path="people/:id">
           <Detail/>
         </Route>
+        <Route path="/people/:id:edit">
+    <Update />
+    </Route>
       </div>
     </BrowserRouter>
   );
